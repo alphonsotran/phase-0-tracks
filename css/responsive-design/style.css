@@ -47,27 +47,42 @@ figcaption {
 }
 
 
-@media screen and (max-width: 500px) {
-  body {
-  background-color: hotpink;
-  }
-  #external-links{
-  max-width: 100%;
-  position: absolute;
-  bottom: -700px;
-  display: inline-block;
 
-  /*vertical-align: baseline;*/
+@media screen and (max-width: 500px) {
+  * {
+
+  }
+  #external-links {
+    /*max-width: 100%;*/
+    position: relative;
+    display: block;
+    width: 100%;
   }
   main {
     max-width: 100%;
-    display: inline-block;
   }
-  body {
-
-  }
-
-  #external-links ul{
+  main p {
     font-size: 20px;
+  }
+  main li {
+    font-size: 20px;
+  }
+  blockquote {
+    font-size: 16px;
+  }
+  #external-links a {
+    font-size: auto;
+    background-color: orange;
+    color: black;
+    padding: 10px;
+    margin: 1px;
+    height: 26px;
+    width 100%;
+    display: block;
+    border: 2px solid black;
+    text-align: center;
+  }
+  #external-links h1 {
+    text-align: center;
   }
 }
