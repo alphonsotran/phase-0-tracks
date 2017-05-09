@@ -1,0 +1,66 @@
+Elevator
+
+Click on up arrow button. 
+Until door opens.
+    -Wait.
+When door opens.
+    -Enter room. 
+    -Scan panel near door.
+    -Push button with integer “13”.
+else
+    -Wait.
+When door opens.
+    -If digital panel does not match integer “13”
+        -Wait.
+    -else 
+        -Walk out.
+
+
+Laundry
+
+Take two empty baskets and place next to dirty laundry basket.
+Take dirty laundry basket and turn upside down. 
+If laundry is light color
+    -put in white basket. 
+else 
+    -put in black basket.
+
+Bring baskets to laundry machine. 
+Reach washing machine handle to open door.
+If door is locked
+    -wait until finished.
+else
+    -open door and place laundry in from white or black basket. 
+Dial to cotton. 
+if contents from basket was placed
+    -dial to cold water if black basket. Press Start button.
+else 
+    -dial to hot water if white basket. Press Start button.
+Until washing machine is finished
+    -go on the internet.
+
+Take out laundry from washing machine and transfer to dryer on top. 
+Dial to low heat. Press Start button. 
+
+Reach washing machine handle to open door.
+If door is locked
+    -wait until finished.
+else
+    -open door and place laundry in from white or black basket. 
+
+if contents from basket was placed
+    -dial to cold water if black basket. Press Start button.
+else 
+    -dial to hot water if white basket. Press Start button.
+Until washing machine is finished
+    -go on the internet.
+
+Remove laundry from dryer and place into white or black basket. 
+Take out laundry from washing machine and transfer to dryer on top. 
+Dial to low heat. Press Start button. 
+
+While drying machine is on
+    -go to Starbucks.
+Remove laundry from dryer and place into white or black basket.
+End.
+
