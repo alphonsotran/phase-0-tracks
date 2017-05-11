@@ -22,7 +22,9 @@
 #end
 
 
+#OUR METHOD DECLARATIONS
 
+#Defining a method that increases each letter of the string by one.
 def encrypt(word)
 	#Defining variables.
 	words_str = ""
@@ -31,7 +33,7 @@ def encrypt(word)
 	i = 0
 	#Iterating through each index until it matches the given word length.
 	until i == word.length
-		#Printing the decrementing letter following each index.
+		#Shoving the incrementing letter following each index into variable.
 		words_str << alphabet[((alphabet.index(word[i]))+1) % 26]
 		#Incrementing the counter by one.
 		i += 1
@@ -51,7 +53,7 @@ def decrypt(word)
 	i = 0
 	#Iterating through each index until it matches the given word length.
 	until i == word.length
-		#Printing the decrementing letter following each index.
+		#Shoving the decrementing letter following each index into variable. 
 		words_str << alphabet[((alphabet.index(word[i]))-1) % 26]
 		#Incrementing the counter by one.
 		i += 1
@@ -61,7 +63,7 @@ words_str
 #Closes the scope of the method.	
 end
 
-
+#Defines a method that chooses the path of the user. 
 def pickone(password_b, password)
 	if password_b == "encrypt"
 		puts encrypt(password)
@@ -75,6 +77,7 @@ puts encrypt("abc")
 puts encrypt("zed")
 puts decrypt("bcd")
 puts decrypt("afe")
+
 #The encrypt method gave us an implicit return to pass onto the decrypt method as an argument.
 puts decrypt(encrypt("swordfish")) 
 
