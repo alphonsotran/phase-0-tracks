@@ -45,28 +45,39 @@ puts "Do you need to make any updates to your application?"
 updates = gets.chomp
 
   case updates
-    when "yes"
+    when "yes", "y", "yup"
       puts "Which section do you need to make a change to?"
         changes = gets.chomp.to_sym
           case changes
             when :name
               puts "Enter fullname."
               designer_info[:name] = gets.chomp
+              puts "Great. Here is your information again."
+              puts designer_info
             when :age
               puts "Enter your new age."
               designer_info[:age] = gets.to_i
+              puts "Great. Here is your information again."
+              puts designer_info
             when :children
               puts "Enter your new amount of children."
               designer_info[:children] = gets.to_i
+              puts "Great. Here is your information again."
+              puts designer_info
             when :decor
               puts "Enter your favorite new, fad decor."
               designer_info[:decor] = gets.chomp
+              puts "Great. Here is your information again."
+              puts designer_info
             when :color
               puts "Enter your new color."
               designer_info[:color] =gets.chomp
+              puts "Great. Here is your information again."
+              puts designer_info
           end
     when "no", "none"
       puts "Great. Here is your information again."
-    end
+      puts designer_info
+  end
 
-puts designer_info
+
