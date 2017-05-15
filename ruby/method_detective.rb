@@ -4,37 +4,72 @@
 # When there's more than one suspect who could have
 # committed the crime, add additional calls to prove it.
 
+def swapcase
 "iNvEsTiGaTiOn".swapcase
- => “InVeStIgAtIoN”
+end
 
- "zom".gsub(/[m]/, "om")
- => “zoom”
+#=> “InVeStIgAtIoN”
 
+def gsub
+ puts "zom".gsub(/[m]/, "om")
+end
+#=> “zoom”
+
+def center
  "enhance".center(16)
- => "    enhance    "
+end
+#=> "    enhance    "
 
-"Stop! You’re under arrest!".upcase
-=> "STOP! YOU’RE UNDER ARREST!"
+def upcase
+  "Stop! You’re under arrest!".upcase
+end
+#=> "STOP! YOU’RE UNDER ARREST!"
 
- "the usual".ljust(18, " suspects")
-=> "the usual suspects"
+def ljust
+  "the usual".ljust(18, " suspects")
+end
+#=> "the usual suspects"
 
- " suspects".rjust(18, "the usual")
- => "the usual suspects"
+def rjust
+  " suspects".rjust(18, "the usual")
+end
+#=> "the usual suspects"
 
-"The case of the disappearing last letter".chop
- => "The case of the disappearing last lette"
+def chop
+  "The case of the disappearing last letter".chop
+end
+#=> "The case of the disappearing last lette"
 
-"The mystery of the missing first letter".slice(1..-1)
- => "he mystery of the missing first letter"
+def slice
+  "The mystery of the missing first letter".slice(1..-1)
+end
+#=> "he mystery of the missing first letter"
 
-"Elementary,    my   dear        Watson!".squeeze
-=> "Elementary, my dear Watson!"
+def squeeze
+  "Elementary,    my   dear        Watson!".squeeze
+end
+#=> "Elementary, my dear Watson!"
 
- "z".bytes
- => 122
+def bytes
+  "z".bytes
+end
+puts bytes #=> 122
  #(What is the significance of the number 122 in relation to the character z?)
  #Changes string letter to character code ASCII
 
- "How many times does the letter 'a' appear in this string?".count"a"
- => 4
+def count
+  "How many times does the letter 'a' appear in this string?".count"a"
+end
+#=> 4
+
+
+puts swapcase
+puts gsub
+puts center
+puts upcase
+puts ljust
+puts rjust
+puts chop
+puts slice
+puts squeeze
+puts count
