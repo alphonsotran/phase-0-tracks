@@ -2,10 +2,11 @@
 
 #Pseudocode:
 #Set up alphabet, vowel, and empty array variables.
+# 	-iterate alphabet and reject vowels and put into consonants variable.
 #Downcase, split name into array, swap first and last name, join array into string, and split string into array again.
 #Iterate through each word with conditions comparing the vowels, consonants, and empty space. 
-	#if vowels or consonants match, increment by one and then shove into empty variable.
-	#if string space is detected, shove string space into empty variable.
+# 	-if vowels or consonants match, increment by one and then shove into empty variable.
+# 	-if string space is detected, shove string space into empty variable.
 #Merge new variable with shoved elements from array into string. Split into two separate arrays separated by space, then iterate to capitalize first word. Merge into string by joining space once more.
 
 
@@ -39,34 +40,36 @@
 #
 #def next_consonant(element)
 #  alphabet = ("a".."z").to_a
+#  consonants = alphabet.reject {|x| "aeiou".include?(x)}
 #  chosen = []
-#  chosen << alphabet[((alphabet.index(element)+1)%26)]
+#  chosen << consonants[((consonants.index(element)+1) % consonants.length)]
 #  chosen
 #end
 
 
 #Method 2
 def fake_name_gen(username)
-alphabet = ("a".."z").to_a
-vowels = ["a", "e", "i", "o", "u"]
-new_username = []
-	mod_username = username.downcase.split.reverse.join(' ').split('')
-	mod_username.each do |el|
-	  if el == " "
-	    new_username << el
-	  elsif vowels.include?(el)
-			vowels.each_with_index do |el2, idx|
-				if el == el2 
-			    	new_username << vowels[(idx+1)%5] 
-				else 
-			    	next
-				end
-	    	end
-	  else 
-	    new_username << alphabet[((alphabet.index(el)+1)%26)]
-	  end
-	end
-spy_name = new_username.join('').split.map {|x| x.capitalize}.join(' ')
+	alphabet = ("a".."z").to_a
+	vowels = ["a", "e", "i", "o", "u"]
+	consonants = alphabet.reject {|x| "aeiou".include?(x)}
+	new_username = []
+		mod_username = username.downcase.split.reverse.join(' ').split('')
+		mod_username.each do |el|
+		  if el == " "
+		    new_username << el
+		  elsif vowels.include?(el)
+				vowels.each_with_index do |el2, idx|
+					if el == el2 
+				    	new_username << vowels[(idx+1)%5] 
+					else 
+				    	next
+					end
+		    	end
+		  else 
+		    new_username << consonants[((consonants.index(el)+1) % consonants.length)]
+		  end
+		end
+	spy_name = new_username.join('').split.map {|x| x.capitalize}.join(' ')
 end 
 
 
