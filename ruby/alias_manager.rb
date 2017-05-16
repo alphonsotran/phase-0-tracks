@@ -1,12 +1,12 @@
 #5.5 Solo Challenge
 
 #Pseudocode:
-#Split name into array and swap first and last name (.reverse).
-#Merge array into string and split again through split('') where every single letter is now part of an array.
-#Make a new method that will change consonants from current to next.
-#Make a new method that will change vowel from current to next on the list of "aeiou".
-#Chain the new method where they are passed as an argument from one to the other.
-#Merge name from array into string.
+#Set up alphabet, vowel, and empty array variables.
+#Downcase, split name into array, swap first and last name, join array into string, and split string into array again.
+#Iterate through each word with conditions comparing the vowels, consonants, and empty space. 
+	#if vowels or consonants match, increment by one and then shove into empty variable.
+	#if string space is detected, shove string space into empty variable.
+#Merge new variable with shoved elements from array into string. Split into two separate arrays separated by space, then iterate to capitalize first word. Merge into string by joining space once more.
 
 
 #Smaller Methods
