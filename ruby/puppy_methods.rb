@@ -58,9 +58,11 @@ while counter < 50
   counter = counter + 1
 end
 
+
 p cat_array
 
 cat_array.each do |x|
   x.scratch
   x.sleep
 end
+
