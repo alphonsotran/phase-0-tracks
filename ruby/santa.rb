@@ -31,13 +31,15 @@ class Santa
   end
 
   def get_mad_at(reindeer_name)
-
-    @reindeer_ranking.each_index do |idx|
-      if @reindeer_ranking[idx] == "reindeer_name"
-        #@reindeer_ranking.slice!(idx)
-        @reindeer_ranking.push("reindeer_name")
-      end
+    @reindeer_ranking.each do |x|
+     if x == reindeer_name
+       @reindeer_ranking.delete(x)
+       @reindeer_ranking.push(x)
+     else
+       next
+     end
     end
+    @reindeer_ranking
   end
 
   def gender=(new_gender)
@@ -60,8 +62,6 @@ end
 
 # Drive code
 
-
-
 #santa_names = ["Mickey", "Jackie", "James", "Leon", "Trinity", "Leah", "Unk"]
 #
 #santas = []
@@ -81,7 +81,7 @@ end
 #end
 
 santa_m = Santa.new("Mickey", "agender", "black", 150)
-santa_m.celebrate_birthday
+#santa_m.celebrate_birthday
 
-#santa_m.get_mad_at("Dasher")
-puts "#{santa_m.age}"
+santa_m.get_mad_at("Dasher")
+puts "#{santa_m.reindeer_rank}"
