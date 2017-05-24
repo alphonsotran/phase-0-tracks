@@ -1,5 +1,6 @@
 class Santa
-
+  attr_reader :age, :ethnicity
+  attr_accessor :gender
   def speak
     puts "Ho, ho ho! Haaaappy Holidays!"
   end
@@ -43,26 +44,27 @@ class Santa
   end
 
 # setter method
-  def gender=(new_gender)
-    @gender = new_gender
-  end
+#  def gender=(new_gender)
+#    @gender = new_gender
+#  end
 
 # getter method
-  def age
-    @age
-  end
-
-  def gender
-    @gender
-  end
-
-  def ethnicity
-    @ethnicity
-  end
+#  def age
+#     @age
+#  end
+#
+#  def gender
+#    @gender
+#  end
+#
+#  def ethnicity
+#    @ethnicity
+#  end
 
   def reindeer_rank
     @reindeer_ranking
   end
+
 end
 
 # DRIVER CODE
@@ -100,5 +102,7 @@ santa_m.gender = "female"
 puts "Santa is now #{santa_m.gender}"
 # Move reindeer to end of ranking
 p santa_m.get_mad_at("Dasher")
+# Check ethnicity
+puts "Santa is #{santa_m.ethnicity}."
 
 # Release 3
