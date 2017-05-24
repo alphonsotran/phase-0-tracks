@@ -42,6 +42,7 @@ class Santa
     @reindeer_ranking
   end
 
+# setter method
   def gender=(new_gender)
     @gender = new_gender
   end
@@ -49,6 +50,10 @@ class Santa
 # getter method
   def age
     @age
+  end
+
+  def gender
+    @gender
   end
 
   def ethnicity
@@ -86,6 +91,14 @@ end
 
 # Release 2
 santa_m = Santa.new("Mickey", "agender", "black", 150)
-#santa_m.celebrate_birthday
 
+# Increment birthday by one
+santa_m.celebrate_birthday
+puts "Santa is #{santa_m.age} years old!"
+# Change gender to female
+santa_m.gender = "female"
+puts "Santa is now #{santa_m.gender}"
+# Move reindeer to end of ranking
 p santa_m.get_mad_at("Dasher")
+
+# Release 3
