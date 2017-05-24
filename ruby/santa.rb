@@ -60,10 +60,14 @@ class Santa
   end
 end
 
-# Drive code
+# DRIVER CODE
 
-#santa_names = ["Mickey", "Jackie", "James", "Leon", "Trinity", "Leah", "Unk"]
-#
+# Release 0
+#drunk_santa = Santa.new
+#drunk_santa.speak
+#drunk_santa.eat_milk_and_cookies("Snickerdoodle")
+
+# Release 1
 #santas = []
 #
 #
@@ -80,8 +84,8 @@ end
 #  puts "----"
 #end
 
+# Release 2
 santa_m = Santa.new("Mickey", "agender", "black", 150)
 #santa_m.celebrate_birthday
 
-santa_m.get_mad_at("Dasher")
-puts "#{santa_m.reindeer_rank}"
+p santa_m.get_mad_at("Dasher")
