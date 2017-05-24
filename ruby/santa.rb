@@ -1,6 +1,6 @@
 class Santa
   attr_reader :age, :ethnicity
-  attr_accessor :gender
+  attr_accessor :gender, :age
   def speak
     puts "Ho, ho ho! Haaaappy Holidays!"
   end
@@ -16,7 +16,7 @@ class Santa
     @ethnicity = ethnicity
     @age = 0
     @weight = weight
-    @reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
+    #@reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
   end
 
   def about
@@ -61,9 +61,6 @@ class Santa
 #    @ethnicity
 #  end
 
-  def reindeer_rank
-    @reindeer_ranking
-  end
 
 end
 
@@ -92,17 +89,32 @@ end
 #end
 
 # Release 2
-santa_m = Santa.new("Mickey", "agender", "black", 150)
-
+#santa_m = Santa.new("Mickey", "agender", "black", 150)
 # Increment birthday by one
-santa_m.celebrate_birthday
-puts "Santa is #{santa_m.age} years old!"
+#santa_m.celebrate_birthday
+#puts "Santa is #{santa_m.age} years old!"
 # Change gender to female
-santa_m.gender = "female"
-puts "Santa is now #{santa_m.gender}"
+#santa_m.gender = "female"
+#puts "Santa is now #{santa_m.gender}"
 # Move reindeer to end of ranking
-p santa_m.get_mad_at("Dasher")
+#p santa_m.get_mad_at("Dasher")
 # Check ethnicity
-puts "Santa is #{santa_m.ethnicity}."
+#puts "Santa is #{santa_m.ethnicity}."
 
-# Release 3
+# Release 4
+santa_mix = []
+santa_genders = ["male", "female", "agender", "genderfluid", "Androgyne", "Bigender", "Pangender"]
+santa_names = ["Ashley", "Mike", "John", "Leah", "Gero", "Diana", "Stephanie", "Stefanie", "Urkel", "Unicorn"]
+santa_ethnicities = ["Alien", "Black", "White", "Japanese", "Mexican", "Vietnamese", "Cuban", "Unicorn", "African", "South African", "French", "Italian", "German"]
+santa_age = (0..140).to_a
+santa_weight = (100..300).to_a
+
+500.times do |i|
+  santa_mix << Santa.new(santa_names.sample, santa_genders.sample, santa_ethnicities.sample, santa_weight.sample)
+end
+
+santa_mix.each do |x|
+  x.age = santa_age.sample
+  x.about
+  puts "----"
+end
