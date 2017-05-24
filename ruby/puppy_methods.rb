@@ -1,79 +1,66 @@
 class Puppy
-
   def fetch(toy)
     puts "I brought back the #{toy}!"
     toy
   end
 
-  def speak(n)
-    n.times {|x| puts "Woof!"}
+  def speak(num)
+    counter = 0
+    while counter < num
+      puts "woof"
+      counter += 1
+    end
   end
 
   def roll_over
-    puts "*rolls over*"
+    puts "*Rolls over*"
   end
 
-  def dog_years(n)
-    dog_yrs = n * 7
-    puts "The dog is #{dog_yrs} years old."
+  def dog_years(human_yrs)
+    human_yrs * 7
   end
 
-  def play_dead
-    puts "...."
+  def pee_itself
+    puts "*Wets self*"
   end
 
   def initialize
-    puts "Initializing new puppy instance ..."
+    puts "Initializin new puppy instance..."
   end
 
 end
 
-class Kitty
+spot = Puppy.new
+spot.fetch("ball")
+spot.speak(4)
+spot.roll_over
+p spot.dog_years(12)
+spot.pee_itself
 
-  def initialize
-    puts "Initializing new kitten instance..."
+class Kitten
+
+  def scratch
+    puts "Ouch! He scratched me."
   end
 
-  def ball_of_string
-    puts "Kitten accidentally scratched you!"
-  end
-
-  def lives_left
-    puts "Kitten always has 9 lives."
+  def sleep
+    puts "Oh look, he's sleeping."
   end
 
 end
 
-## Driver Code
-## Creates new instance
-#sparky = Puppy.new
-#
-## calls an instance method .fetch
-#puts sparky.fetch("bone")
-#
-## calls an instance method .speak
-#puts sparky.speak(4)
-#
-## calls an instance method .roll_over
-#puts sparky.roll_over
-#
-## calls an instance method .dog_years
-#puts sparky.dog_years(2)
-#
-## calls an instance method .play_dead
-#puts sparky.play_dead
+counter = 0
 
-hk_arr = []
-50.times do |i|
-  kitten_i = Kitty.new
-  hk_arr << kitten_i
+cat_array = []
+while counter < 50
+  name = counter
+  cat_array << name = Kitten.new
+  counter = counter + 1
 end
 
-def test(arr)
-  arr.each do |x|
-    x.ball_of_string
-    x.lives_left
-  end
-end
+p cat_array
 
-puts test(hk_arr)
+cat_array.each do |x|
+  x.scratch
+  x.sleep
+end
