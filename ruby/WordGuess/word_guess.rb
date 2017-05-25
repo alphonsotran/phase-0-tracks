@@ -47,15 +47,17 @@ end
 
 #Driver code
 #Ask user for word and initialize.
-puts "Input a word to have person B guess."
+puts "Input a word to have player 2 guess."
 secretword = gets.chomp
 random = WordGuess.new(secretword)
+
+#Ask players to switch.
 sleep(0.5)
 puts " "
-puts "Now switch."
+puts "Now switch players."
 puts " "
 sleep(0.5)
-puts "Are you ready person B?"
+puts "Are you ready player 2?"
 sleep(1.3)
 #Convert word to "-" form. Ask the other user to guess the word. Print the secret word in "-" form.
 random.word_convert
