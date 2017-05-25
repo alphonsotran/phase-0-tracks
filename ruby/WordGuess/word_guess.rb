@@ -4,12 +4,11 @@
 #
 #Method that initializes and adds appropriate user input into instance variable. Set default instance values for guess_count at 0 and game_over at false.  
 #
-#Method that counts length of word
-#
 #Method that converts each word to "-"
 #
 #Method that iterates over word array and replaces "-" with appropriate index of the correct word.
 #	Increments by one if guessed incorrectly.
+#	Converts to string.
 #
 #Driver code
 #Congratulatory message if guessed correctly under guess_count. Taunting message if above guess_count counter.
@@ -26,10 +25,6 @@ class WordGuess
 		@blankarr = []
 		@wordlength = @userword.length
 	end
-
-	#def word_length
-	#	@wordlength = @userword.length
-	#end
 
 	def word_convert
 		@wordlength.times do |x|
@@ -71,6 +66,7 @@ random = WordGuess.new(secretword)
 #Convert word to "-" form. Ask the other user to guess the word. Print the secret word in "-" form.
 random.word_convert
 
+#Create a loop asking for a letter until countdown = 0 or guessed word correctly.
 loop do
 	puts " "
 	puts "#{random.blankstr}"
@@ -85,13 +81,4 @@ loop do
 		else 
 			next
 		end 
-
 end
-#puts "Guess one letter at a time."
-#letter = gets.chomp
-#random.guess(letter)
-#
-#puts " "
-#puts "#{random.blankstr}"
-#puts "Guess one letter at a time."
-#p random.guess_count
