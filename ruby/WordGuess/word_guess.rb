@@ -33,13 +33,14 @@ class WordGuess
 	end
 
 	def guess(letter)
-		@guess_count -= 1
 		@wordarr.each_index do |idx|
-			if @wordarr[idx] == letter
+			if @wordarr[idx] == letter.downcase
+				return if letter.downcase == @blankarr[idx]
 				@blankarr.delete_at(idx)
-				@blankarr.insert(idx, letter)
+				@blankarr.insert(idx, letter.downcase)
 			end
 		end
+		@guess_count -= 1
 		@blankstr = @blankarr.join.to_s
 	end
 
@@ -72,12 +73,11 @@ loop do
 	puts "Guess one letter at a time. Tries remaining: #{random.guess_count}"
 	letter = gets.chomp
 	random.guess(letter)
-		if random.guess_count == 0
-			puts "You lose!"
-			break
-		elsif
-			random.blankstr == random.userword
+		if random.blankstr == random.userword
 			puts "You win!"
+			break
+		elsif random.guess_count == 0
+			puts "You lose!"
 			break
 		else
 			next
