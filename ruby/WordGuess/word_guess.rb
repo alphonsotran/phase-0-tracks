@@ -16,7 +16,7 @@
 
 
 class WordGuess
-	attr_reader :wordstr
+	attr_reader :blankstr, :guess_count
 
 	def initialize(userword)
 		@userword = userword
@@ -27,9 +27,9 @@ class WordGuess
 		@wordlength = @userword.length
 	end
 
-	def word_length
-		@wordlength = @userword.length
-	end
+	#def word_length
+	#	@wordlength = @userword.length
+	#end
 
 	def word_convert
 		@wordlength.times do |x|
@@ -39,7 +39,8 @@ class WordGuess
 	end
 
 	def guess(letter)
-		@wordarr.each_windex do |idx|
+		@guess_count += 1
+		@wordarr.each_index do |idx|
 			if @wordarr[idx] == letter
 				@blankarr.delete_at(idx)
 				@blankarr.insert(idx, letter)
@@ -54,4 +55,9 @@ end
 random = WordGuess.new("hello")
 
 p random.word_convert
-p random.wordstr
+p random.blankstr
+random.guess("h")
+p random.blankstr
+random.guess("l")
+p random.blankstr
+p random.guess_count
