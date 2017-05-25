@@ -2,26 +2,25 @@
 #
 #Create a 'WordGuess' class. Include methods:
 #
-#Method that initializes and adds appropriate user input into instance variable. Set default instance values for guess_count at 0 and game_over at false.  
+#Method that initializes and adds appropriate user input into instance variable downcase. Set instance variables for guess_count at user's inputted word's length and array. Set up instance variable with blank array.
 #
-#Method that converts each word to "-"
+#Method that converts each word to "-" by iterating through array of words and replace with "-"
 #
-#Method that iterates over word array and replaces "-" with appropriate index of the correct word.
-#	Increments by one if guessed incorrectly.
-#	Converts to string.
+#Method that iterates over word array and replaces "-" with appropriate index of the correct word. Decrement guess_count by one if guessed incorrectly. Converts array back to string.
 #
 #Driver code
-#Congratulatory message if guessed correctly under guess_count. Taunting message if above guess_count counter.
+#Congratulatory message if guessed correctly before guess_count is equal to zero. Taunting message if guess_count is equal to zero.
 
 
 class WordGuess
 	attr_reader :blankstr, :guess_count, :wordlength, :userword
+	attr_accessor :game_over
 
 	def initialize(userword)
 		@userword = userword.downcase
 		@guess_count = userword.length
-		@game_over = false
 		@wordarr = @userword.chars
+		@game_over = false
 		@blankarr = []
 		@wordlength = @userword.length
 	end
@@ -74,11 +73,13 @@ loop do
 	letter = gets.chomp
 	random.guess(letter)
 		if random.guess_count == 0
-			return puts "You lose!"
+			puts "You lose!"
+			break
 		elsif
 			random.blankstr == random.userword
-			return puts "You win!"
-		else 
+			puts "You win!"
+			break
+		else
 			next
-		end 
+		end
 end
