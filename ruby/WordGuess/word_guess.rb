@@ -70,21 +70,26 @@ random = WordGuess.new(secretword)
 
 #Convert word to "-" form. Ask the other user to guess the word. Print the secret word in "-" form.
 random.word_convert
-puts " "
-puts "#{random.blankstr}"
-loop do
-	if random.guess_count > random.wordlength 
-		return puts "You lose!"
-	elsif random.blankstr == random.userword
-		return puts "You win!"
-	else 
-		
-end
-puts "Guess one letter at a time."
-letter = gets.chomp
-random.guess(letter)
 
-puts " "
-puts "#{random.blankstr}"
-puts "Guess one letter at a time."
-p random.guess_count
+loop do
+	puts " "
+	puts "#{random.blankstr}"
+	puts "Guess one letter at a time."
+	letter = gets.chomp
+	random.guess(letter)
+		if random.guess_count > random.wordlength 
+			return puts "You lose!"
+		else 
+			random.blankstr == random.userword
+			return puts "You win!"
+		end 
+
+end
+#puts "Guess one letter at a time."
+#letter = gets.chomp
+#random.guess(letter)
+#
+#puts " "
+#puts "#{random.blankstr}"
+#puts "Guess one letter at a time."
+#p random.guess_count
