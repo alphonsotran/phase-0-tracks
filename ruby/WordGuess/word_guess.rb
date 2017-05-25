@@ -20,7 +20,7 @@ class WordGuess
 
 	def initialize(userword)
 		@userword = userword.downcase
-		@guess_count = 0
+		@guess_count = userword.length
 		@game_over = false
 		@wordarr = @userword.chars
 		@blankarr = []
@@ -39,7 +39,7 @@ class WordGuess
 	end
 
 	def guess(letter)
-		@guess_count += 1
+		@guess_count -= 1
 		@wordarr.each_index do |idx|
 			if @wordarr[idx] == letter
 				@blankarr.delete_at(idx)
@@ -74,10 +74,10 @@ random.word_convert
 loop do
 	puts " "
 	puts "#{random.blankstr}"
-	puts "Guess one letter at a time."
+	puts "Guess one letter at a time. Tries remaining: #{random.guess_count}"
 	letter = gets.chomp
 	random.guess(letter)
-		if random.guess_count > random.wordlength 
+		if random.guess_count == 0
 			return puts "You lose!"
 		elsif
 			random.blankstr == random.userword
