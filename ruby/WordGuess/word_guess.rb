@@ -14,13 +14,11 @@
 
 class WordGuess
 	attr_reader :blankstr, :guess_count, :wordlength, :userword
-	attr_accessor :game_over
 
 	def initialize(userword)
 		@userword = userword.downcase
 		@guess_count = userword.length
 		@wordarr = @userword.chars
-		@game_over = false
 		@blankarr = []
 		@wordlength = @userword.length
 	end
@@ -49,30 +47,38 @@ end
 
 #Driver code
 #Ask user for word and initialize.
-puts "Input a word to have the other person guess."
+puts "Input a word to have person B guess."
 secretword = gets.chomp
 random = WordGuess.new(secretword)
-
+sleep(0.5)
+puts " "
+puts "Now switch."
+puts " "
+sleep(0.5)
+puts "Are you ready person B?"
+sleep(1.3)
 #Convert word to "-" form. Ask the other user to guess the word. Print the secret word in "-" form.
 random.word_convert
 
 #Create a loop asking for a letter until countdown = 0 or guessed word correctly.
 loop do
-	sleep(0.4)
+	sleep(0.2)
 	puts " "
 	puts "Word to guess: #{random.blankstr}"
 	puts "Guess one letter at a time. Tries remaining: #{random.guess_count}"
 	letter = gets.chomp
 	random.guess(letter)
 		if random.blankstr == random.userword
+			sleep(0.2)
 			puts " "
 			puts "The secret word is '#{random.userword}'"
 			puts "Congratulations! You a winner!"
 			break
 		elsif random.guess_count == 0
+			sleep(0.2)
 			puts " "
 			puts "Ha ha. You lose, loser!"
-			puts "The secret word is '#{random.userword}'"
+			puts "The secret word was '#{random.userword}'"
 			break
 		else
 			next
