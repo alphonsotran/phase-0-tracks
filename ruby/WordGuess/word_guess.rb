@@ -16,13 +16,13 @@
 
 
 class WordGuess
-	attr_reader :blankstr, :guess_count
+	attr_reader :blankstr, :guess_count, :wordlength, :userword
 
 	def initialize(userword)
-		@userword = userword
+		@userword = userword.downcase
 		@guess_count = 0
 		@game_over = false
-		@wordarr = userword.chars
+		@wordarr = @userword.chars
 		@blankarr = []
 		@wordlength = @userword.length
 	end
@@ -52,12 +52,39 @@ class WordGuess
 end
 
 
-random = WordGuess.new("hello")
+#random = WordGuess.new("hello")
 
-p random.word_convert
-p random.blankstr
-random.guess("h")
-p random.blankstr
-random.guess("l")
-p random.blankstr
+#p random.word_convert
+#p random.blankstr
+#random.guess("h")
+#p random.blankstr
+#random.guess("l")
+#p random.blankstr
+#p random.guess_count
+
+#Driver code
+#Ask user for word and initialize.
+puts "Input a word to have the other person guess."
+secretword = gets.chomp
+random = WordGuess.new(secretword)
+
+#Convert word to "-" form. Ask the other user to guess the word. Print the secret word in "-" form.
+random.word_convert
+puts " "
+puts "#{random.blankstr}"
+loop do
+	if random.guess_count > random.wordlength 
+		return puts "You lose!"
+	elsif random.blankstr == random.userword
+		return puts "You win!"
+	else 
+		
+end
+puts "Guess one letter at a time."
+letter = gets.chomp
+random.guess(letter)
+
+puts " "
+puts "#{random.blankstr}"
+puts "Guess one letter at a time."
 p random.guess_count
