@@ -79,9 +79,11 @@ loop do
 	random.guess(letter)
 		if random.guess_count > random.wordlength 
 			return puts "You lose!"
-		else 
+		elsif
 			random.blankstr == random.userword
 			return puts "You win!"
+		else 
+			next
 		end 
 
 end
