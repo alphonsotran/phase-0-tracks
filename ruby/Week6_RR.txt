@@ -1,0 +1,41 @@
+1. What are classes? Be sure to define the following terms in your explanation and describe the relationships between them:
+
+Classes are considered first-class objects. They contain instructions for attributes and methods. Instances are members of classes. 
+
+class - contain attributes and methods.
+state - within a class are attributes which the states track for each object. 
+behavior - within a class are methods, or behaviors, which determines how the object acts. 
+instance variable - a variable that is within the scope of the class unless a getter or setter method is set, which will allow it to be called out of the scope. It keeps track of state. 
+instance method - method that can only be called on the instance of the class.
+
+2. What are attributes? 
+
+Attributes contain properties and data of a particular instance. It is similar to the 'physical characteristics' of an instance. 
+
+3. Give an example of a real world object, and describe how you might assign its attributes if you were to design a class to represent that object.
+
+One real world example is a person. Under the class Humans, there are many types of people, or instances, with different characteristics. These characteristics include height, weight, body type, etc. We can assign attributes for each characteristic by setting them as instance variables when we are initializing each person.
+
+class Human
+
+def intialize (height, weight, body_type)
+    @height = height
+    @weight = weight
+    @body_type = body_type
+end
+
+end
+
+person = Human.new(6', 180, "fit")
+
+4. What is the purpose of the initialize method? When does it run?
+
+The purpose of the initialize method is to allow us to add default values to the assigned instance variables. It runs every single time a new instance is created.
+
+5. What are modules?
+
+A module is a collection of the methods, classes, and constants that are grouped together. It is similar to a toolkit, and contains stand-alone behaviors. 
+
+6. What are the different ways you can use a module?
+
+You can use a module to implement into a class to have the set of methods at your disposal; this is called mixins. You can also use it to compartmentalize methods, which is called namespacing, to prevent clutter and method conflicts. 
