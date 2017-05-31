@@ -1,10 +1,10 @@
 # Virus Predictor
 
-# I worked on this challenge [by myself, with: ].
-# We spent [#] hours on this challenge.
+# I worked on this challenge [by myself, with: Garima ].
+# We spent [1.5] hours on this challenge.
 
 # EXPLANATION OF require_relative
-#
+#Require relative loads a file relative to the location you are in, while using require you need specify the entire location path.
 #
 require_relative 'state_data'
 
@@ -90,3 +90,23 @@ alaska.virus_effects
 =end
 #=======================================================================
 # Reflection Section
+
+#What are the differences between the two different hash syntaxes shown in the state_data file?
+
+#The rocket sign is the old hash syntax, which is still valid now, but the colon syntax is easier, cleaner, and more intuitive.
+
+#What does require_relative do? How is it different from require?
+
+#Require relative loads a file relative to the location you are in, while using require you need specify the entire location path.
+
+#What are some ways to iterate through a hash?
+
+#.each_key calls block once, for each_key in hash passing the key as a parameter. .each_pair calls block once for each key in a hash, passing the key-value pair as parameters. .each_value calls block once, for each_key in hash passing the value as a parameter. .each calls block once for each key in a hash, passing the key-value pair as parameters.
+
+#When refactoring virus_effects, what stood out to you about the variables, if anything?
+
+#For the virus_effects method, the predicted_deaths and the speed_of_spread don't explicitly require instance variables to be passed because the instance variables are already available.
+
+#What concept did you most solidify in this challenge?
+
+#Working through nested data structures especially when iterating.
