@@ -17,4 +17,17 @@ var reverse = function(word) {
 
 };
 
-console.log(reverse("thanksgiving"));
+
+
+//Driver code
+
+var reverse_result = console.log(reverse("Thanksgiving"));
+reverse_result;
+var word = "gnivigsknahT"
+
+if (word == reverse("Thanksgiving")) {
+  console.log("This statement is true.");
+}
+else {
+  console.log("This statement is false.");
+}
