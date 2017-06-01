@@ -1,10 +1,10 @@
 # Virus Predictor
 
-# I worked on this challenge [by myself, with: ].
-# We spent [#] hours on this challenge.
+# I worked on this challenge [by myself, with: Garima ].
+# We spent [1.5] hours on this challenge.
 
 # EXPLANATION OF require_relative
-#
+#Require relative loads a file relative to the location you are in, while using require you need specify the entire location path.
 #
 require_relative 'state_data'
 
@@ -17,13 +17,13 @@ class VirusPredictor
   end
 
   def virus_effects
-    predicted_deaths(@population_density, @population, @state)
-    speed_of_spread(@population_density, @state)
+    predicted_deaths#(@population_density, @population, @state)
+    speed_of_spread#(@population_density, @state)
   end
 
   private
 
-  def predicted_deaths(population_density, population, state)
+  def predicted_deaths#(population_density, population, state)
     # predicted deaths is solely based on population density
     if @population_density >= 200
       number_of_deaths = (@population * 0.4).floor
@@ -41,7 +41,7 @@ class VirusPredictor
 
   end
 
-  def speed_of_spread(population_density, state) #in months
+  def speed_of_spread#(population_density, state) #in months
     # We are still perfecting our formula here. The speed is also affected
     # by additional factors we haven't added into this functionality.
     speed = 0.0
@@ -69,7 +69,12 @@ end
 # DRIVER CODE
  # initialize VirusPredictor for each state
 
+STATE_DATA.each do |k,v|
+  state = VirusPredictor.new(k, v[:population_density], v[:population])
+  state.virus_effects
+end
 
+=begin
 alabama = VirusPredictor.new("Alabama", STATE_DATA["Alabama"][:population_density], STATE_DATA["Alabama"][:population])
 alabama.virus_effects
 
@@ -82,6 +87,26 @@ california.virus_effects
 alaska = VirusPredictor.new("Alaska", STATE_DATA["Alaska"][:population_density], STATE_DATA["Alaska"][:population])
 alaska.virus_effects
 
-
+=end
 #=======================================================================
 # Reflection Section
+
+#What are the differences between the two different hash syntaxes shown in the state_data file?
+
+#The rocket sign is the old hash syntax, which is still valid now, but the colon syntax is easier, cleaner, and more intuitive.
+
+#What does require_relative do? How is it different from require?
+
+#Require relative loads a file relative to the location you are in, while using require you need specify the entire location path.
+
+#What are some ways to iterate through a hash?
+
+#.each_key calls block once, for each_key in hash passing the key as a parameter. .each_pair calls block once for each key in a hash, passing the key-value pair as parameters. .each_value calls block once, for each_key in hash passing the value as a parameter. .each calls block once for each key in a hash, passing the key-value pair as parameters.
+
+#When refactoring virus_effects, what stood out to you about the variables, if anything?
+
+#For the virus_effects method, the predicted_deaths and the speed_of_spread don't explicitly require instance variables to be passed because the instance variables are already available.
+
+#What concept did you most solidify in this challenge?
+
+#Working through nested data structures especially when iterating.
