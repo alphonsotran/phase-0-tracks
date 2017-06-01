@@ -7,10 +7,10 @@
 
 var reverse = function(word) {
   var result = [];
-  var splitting = word.split('');
+  var word_arr = word.split('');
 
   for (var i=word.length - 1; i > -1; i--) {
-    result.push(splitting[i]);
+    result.push(word_arr[i]);
   }
 
   return result.join('');
@@ -21,13 +21,11 @@ var reverse = function(word) {
 
 //Driver code
 
-var reverse_result = console.log(reverse("Thanksgiving"));
-reverse_result;
-var word = "gnivigsknahT"
+var reverse_result = reverse("Thanksgiving")
 
-if (word == reverse("Thanksgiving")) {
-  console.log("This statement is true.");
+if (reverse_result === reverse("Thanksgiving")) {
+  console.log(reverse_result + " is correct!");
 }
 else {
-  console.log("This statement is false.");
+  console.log("This word does not work.");
 }
