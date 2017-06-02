@@ -39,9 +39,32 @@ var match = function(object1, object2){
 // Within the loop, set a 'while' loop that will start counter at 1 and end at a random number assigned by Math.random(). The first loop will push a random letter from the alphabet into an empty array. This will go on until the 'while' loop closes. Afterwards, array containing the random letters will be put into a new variable where it is converted into a string.
 // The new variable containing the new string will then be pushed into another empty array. The variable array containing the randomized letters will then be emptied along with the 'while' counter. The next loop will start and the process all over again.
 
+var random_letters_arr = [];
+var random_words = [];
+var n = 1;
+var alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
+
+var randomizer = function(int) {
+
+  for (var i = 0; i < int; i++) {
+    while ( n <= Math.floor(Math.random()*10) + 1) {
+      random_letters_arr.push(alphabet[Math.floor(Math.random()*26)]);
+      n++;
+    }
+    var random_str = random_letters_arr.join("");
+    random_words.push(random_str);
+    random_letters_arr = [];
+    n = 1;
+  }
+
+
+return random_words;
+
+}
 
 
 
 
 console.log(longest_phrase(test_arr));
 console.log(match(census1994, census2004));
+console.log(randomizer(5));
