@@ -1,9 +1,9 @@
 // Pseudocode
+
 // Write a function that will loop through the array and push the length of each element to a new array. 
 // The new array containing the length of each element will then give a max value using the Math.max method and assigned a new variable. 
 // The new variable containing the max element will then be used to find the index in the array with the length of each element. This will be assigned a new variable.
 // The new variable containing the index of the max length will then be used on the original array with the words. 
-
 var longest_phrase = function(arr) {
 	var length_arr = [];
 
@@ -16,6 +16,21 @@ var longest_phrase = function(arr) {
 	return arr[longest_el];
 }
 
+// Write a function that incorportates two objects. The objects will pass through the conditional statement for 
+// each property comparing it to each other (||). If true, then return true. If nothign compares, then return false. 
+var match = function(object1, object2){
+	if (object1.name === object2.name || object1.age === object2.age) {
+	return true;
+	} else {
+	return false;
+	}
+}
+
+	
+
+var census1994 = {name: "Steven", age: 54};
+var census2004 = {name: "Tamir", age: 54};
 var test_arr = ["long phrase","aaaaaaaaaaaaaaaaaa","longest phrase", "asldkfas;ldfasldf", "longer phrase"];
 
 console.log(longest_phrase(test_arr));
+console.log(match(census1994, census2004));
