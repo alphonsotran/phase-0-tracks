@@ -21,7 +21,7 @@ var longest_phrase = function(arr) {
 
 // Write a function that incorporates two object literals.
 // Loop through one object's key and make a conditional statement.
-// ---If object1.key is equal to object2.key, then return true. Else return fase.
+// ---If object1.key is equal to object2.key, then return true. Else return false.
 
 
 var census1994 = {name: "John", age: 53, weight: 22};
@@ -32,8 +32,8 @@ var match = function(object1, object2){
 		if (object1[key] === object2[key]){
 		return true;
 		}
-		}
-		return false;
+	}
+	return false;
 }
 
 // Set up two variables with empty arrays. One variable where n (counter) = 1. Another variable with the alphabet in its array.
@@ -59,18 +59,16 @@ var alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
     random_letters_arr = [];
     n = 1;
   }
-
 console.log(random_words);
 return random_words;
-
 }
 
 
 
-
-console.log(longest_phrase(test_arr));
-console.log(match(census1994, census2004));
-console.log(longest_phrase(randomizer(5)));
+// Driver Code
+//console.log(longest_phrase(test_arr));
+//console.log(match(census1994, census2004));
+//console.log(longest_phrase(randomizer(5)));
 for (i = 0; i < 10; i++){
 	console.log(longest_phrase(randomizer(5)));
 }
