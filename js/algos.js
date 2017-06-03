@@ -19,18 +19,21 @@ var longest_phrase = function(arr) {
 	return arr[longest_el];
 }
 
-// Write a function that incorporates two objects. The objects will pass through the conditional statement for
-// each property comparing it to each other (||). If true, then return true. If nothing compares, then return false.
+// Write a function that incorporates two object literals.
+// Loop through one object's key and make a conditional statement.
+// ---If object1.key is equal to object2.key, then return true. Else return fase.
 
-var census1994 = {name: "Steven", age: 54};
-var census2004 = {name: "Tamir", age: 54};
+
+var census1994 = {name: "John", age: 53, weight: 22};
+var census2004 = {name: "Tamir", age: 54, weight: 22};
 
 var match = function(object1, object2){
-	if (object1.name === object2.name || object1.age === object2.age) {
-	return true;
-	} else {
-	return false;
-	}
+	for (var key in object1){
+		if (object1[key] === object2[key]){
+		return true;
+		}
+		}
+		return false;
 }
 
 // Set up two variables with empty arrays. One variable where n (counter) = 1. Another variable with the alphabet in its array.
