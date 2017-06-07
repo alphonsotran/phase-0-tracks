@@ -1,3 +1,4 @@
+**Release 2**
 sqlite> SELECT * FROM clients;
 1|John Lens|23|0|1
 2|Lindsay Mo|28|1|2
@@ -45,3 +46,59 @@ sqlite> SELECT * FROM clients;
 4|Leonardo DiCaprese|38|0|1
 6|Jennifer Lee|30|0|1
 7|Gabriella Xena|28|0|2
+
+
+**Release 3**
+The types of join in SQL are inner join, left join, right join, cross join, and full outer join. You can apply different conditions to a join to change what's displayed.
+
+sqlite> INSERT INTO clients (name, age, curly, stylist_id)
+   ...> VALUES ("Jason Laven", 25, 1, NULL);
+sqlite> select * from clients;
+2|Lindsay Mo|28|1|2
+3|Trisha Stockton|32|1|2
+4|Leonardo DiCaprese|38|0|1
+5|Samuel Adams|45|0|2
+6|Jennifer Lee|30|0|1
+7|Gabriella Xena|28|0|2
+8|Joose|34|1|1
+9|Jason Laven|25|1|
+sqlite> INSERT INTO hairstylists (name) VALUES ("Trisha Thompson");
+sqlite> select * from hairstylists;
+1|Malinda Jane
+2|James McCon
+3|Trisha Thompson
+Jason Laven|25|
+
+**Left Join**
+sqlite> SELECT clients.name, clients.age, hairstylists.name FROM clients
+   ...> LEFT JOIN hairstylists ON clients.stylist_id = hairstylists.id;
+Lindsay Mo|28|James McCon
+Trisha Stockton|32|James McCon
+Leonardo DiCaprese|38|Malinda Jane
+Samuel Adams|45|James McCon
+Jennifer Lee|30|Malinda Jane
+Gabriella Xena|28|James McCon
+Joose|34|Malinda Jane
+Jason Laven|25|
+
+**Inner Join**
+sqlite> SELECT clients.name,  hairstylists.name FROM clients
+   ...> INNER JOIN hairstylists ON clients.stylist_id = hairstylists.id;
+Lindsay Mo|James McCon
+Trisha Stockton|James McCon
+Leonardo DiCaprese|Malinda Jane
+Samuel Adams|James McCon
+Jennifer Lee|Malinda Jane
+Gabriella Xena|James McCon
+Joose|Malinda Jane
+
+**Cross Join**
+sqlite> SELECT clients.name, clients.age, hairstylists.name FROM clients
+   ...> CROSS JOIN hairstylists ON clients.stylist_id = hairstylists.id;
+Lindsay Mo|28|James McCon
+Trisha Stockton|32|James McCon
+Leonardo DiCaprese|38|Malinda Jane
+Samuel Adams|45|James McCon
+Jennifer Lee|30|Malinda Jane
+Gabriella Xena|28|James McCon
+Joose|34|Malinda Jane
