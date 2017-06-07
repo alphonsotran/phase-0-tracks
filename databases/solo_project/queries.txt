@@ -1,0 +1,47 @@
+sqlite> SELECT * FROM clients;
+1|John Lens|23|0|1
+2|Lindsay Mo|28|1|2
+3|Trisha Stockton|32|1|2
+4|Leonardo DiCaprese|38|0|1
+5|Samuel Adams|45|0|2
+6|Jennifer Lee|30|0|1
+7|Gabriella Xena|28|0|2
+8|Joose|34|1|1
+
+sqlite> UPDATE clients SET curly=1 WHERE name="Samuel Adams";
+sqlite> SELECT * FROM clients;
+1|John Lens|23|0|1
+2|Lindsay Mo|28|1|2
+3|Trisha Stockton|32|1|2
+4|Leonardo DiCaprese|38|0|1
+5|Samuel Adams|45|1|2
+6|Jennifer Lee|30|0|1
+7|Gabriella Xena|28|0|2
+8|Joose|34|1|1
+
+sqlite> SELECT * FROM clients, hairstylists WHERE clients.stylist_id=hairstylists.id; 
+1|John Lens|23|0|1|1|Malinda Jane
+2|Lindsay Mo|28|1|2|2|James McCon
+3|Trisha Stockton|32|1|2|2|James McCon
+4|Leonardo DiCaprese|38|0|1|1|Malinda Jane
+5|Samuel Adams|45|1|2|2|James McCon
+6|Jennifer Lee|30|0|1|1|Malinda Jane
+7|Gabriella Xena|28|0|2|2|James McCon
+8|Joose|34|1|1|1|Malinda Jane
+
+sqlite> SELECT clients.name, clients.age, hairstylists.name FROM clients JOIN hairstylists ON clients.stylist_id = hairstylists.id;
+John Lens|23|Malinda Jane
+Lindsay Mo|28|James McCon
+Trisha Stockton|32|James McCon
+Leonardo DiCaprese|38|Malinda Jane
+Samuel Adams|45|James McCon
+Jennifer Lee|30|Malinda Jane
+Gabriella Xena|28|James McCon
+Joose|34|Malinda Jane
+
+sqlite> DELETE FROM clients WHERE curly=1;
+sqlite> SELECT * FROM clients;
+1|John Lens|23|0|1
+4|Leonardo DiCaprese|38|0|1
+6|Jennifer Lee|30|0|1
+7|Gabriella Xena|28|0|2
