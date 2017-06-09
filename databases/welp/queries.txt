@@ -1,0 +1,35 @@
+sqlite> SELECT *
+   ...> FROM users JOIN reviews ON users.id = reviews.user_id                           
+    ...> JOIN businesses ON reviews.business_id = businesses.id;
+
+1|Bradford|Pitt|1|3|This alright.|1|1|1|Grundy Hollow Wedding Chapel
+3|Angela|Jolie|2|5|Loved it! Wish I can visit again!|2|3|2|Amir's Towing
+3|Angela|Jolie|3|4|Decent workout. Too much stretching.|4|3|4|Lotus Yoga
+5|Holly|Berry|4|2|Not enough dance. Mostly just people drinking.|3|5|3|The Beagle Nightclub
+3|Angela|Jolie|5|5|Would highly recommend this place.|2|3|2|Amir's Towing
+4|Steven|Wonder|6|5|Loooove this place.|2|4|2|Amir's Towing
+5|Holly|Berry|7|3|Needs more plumbing. Less cracking.|5|5|5|Plumbing by Janet
+2|Mandy|Kaling|8|2|Got rid of my spider problem in the drain.|5|2|5|Plumbing by Janet
+
+sqlite> SELECT users.first, users.last, businesses.name, reviews.stars, reviews.comment
+   ...> FROM users JOIN reviews ON users.id = reviews.user_id
+   ...> JOIN businesses ON reviews.business_id = businesses.id;                       
+Bradford|Pitt|Grundy Hollow Wedding Chapel|3|This alright.
+Angela|Jolie|Amir's Towing|5|Loved it! Wish I can visit again!
+Angela|Jolie|Lotus Yoga|4|Decent workout. Too much stretching.
+Holly|Berry|The Beagle Nightclub|2|Not enough dance. Mostly just people drinking.
+Angela|Jolie|Amir's Towing|5|Would highly recommend this place.
+Steven|Wonder|Amir's Towing|5|Loooove this place.
+Holly|Berry|Plumbing by Janet|3|Needs more plumbing. Less cracking.
+Mandy|Kaling|Plumbing by Janet|2|Got rid of my spider problem in the drain.
+
+
+sqlite> SELECT users.first, users.last, businesses.name, reviews.stars, reviews.comment
+   ...> FROM users JOIN reviews ON users.id = reviews.user_id
+   ...> JOIN businesses ON reviews.business_id = businesses.id
+   ...> WHERE businesses.id = 2
+   ...> ;
+
+Angela|Jolie|Amir's Towing|5|Loved it! Wish I can visit again!
+Angela|Jolie|Amir's Towing|5|Would highly recommend this place.
+Steven|Wonder|Amir's Towing|5|Loooove this place.
