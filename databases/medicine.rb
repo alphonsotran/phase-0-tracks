@@ -40,9 +40,15 @@ db.execute(table_creator_days)
 db.execute(table_creator_drugs)
 db.execute(table_creator_regiment)
 regiment_array = db.execute("SELECT * FROM regiment")
+regiment_sat = db.execute(
+          "SELECT days.day, drugs.name, drugs.time FROM days
+          JOIN regiment ON days.id = regiment.days_id
+          JOIN drugs ON regiment.drugs_id = drugs.id
+          WHERE days.id = 7"
+        )
 
 # Populate data under drugs table
-db.execute("INSERT OR IGNORE INTO drugs (name, time) VALUES ('Benadryl', '8:00')")
+db.execute("INSERT OR IGNORE INTO drugs (name, time) VALUES ('Benadryl', '08:00')")
 db.execute("INSERT OR IGNORE INTO drugs (name, time) VALUES ('Melatonin', '23:00')")
 db.execute("INSERT OR IGNORE INTO drugs (name, time) VALUES ('Chlorthalidone', '10:00')")
 db.execute("INSERT OR IGNORE INTO drugs (name, time) VALUES ('Multivitamins', '12:00')")
@@ -77,11 +83,85 @@ db.execute("INSERT OR IGNORE INTO regiment (days_id, drugs_id) VALUES (7, 4)")
 
 
 #p regiment_array
+#p regiment_sat
 
 # Driver code
 
-puts "What would you like to do? Type 'today' for today's regiment.
-today = gets.chomp
+puts "What would you like to do? Type 'Monday', 'Tuesday', etc."
+user_prompt = gets.chomp.downcase
+today = Time.now
 
-
+  if today.sunday? || user_prompt == "sunday"
+    sun_schedule = db.execute(
+      "SELECT days.day, drugs.name, drugs.time FROM days
+      JOIN regiment ON days.id = regiment.days_id
+      JOIN drugs ON regiment.drugs_id = drugs.id
+      WHERE days.id = 1"
+    ).sort_by {|k| k['time']}
+    sun_schedule.each do |k|
+      puts "#{k['name']} at #{k['time']}."
+    end
+  elsif today.monday? || user_prompt == "monday"
+    mon_schedule = db.execute(
+      "SELECT days.day, drugs.name, drugs.time FROM days
+      JOIN regiment ON days.id = regiment.days_id
+      JOIN drugs ON regiment.drugs_id = drugs.id
+      WHERE days.id = 2"
+    ).sort_by {|k| k['time']}
+    mon_schedule.each do |k|
+      puts "#{k['name']} at #{k['time']}."
+    end
+  elsif today.tuesday? || user_prompt == "tuesday"
+    tue_schedule = db.execute(
+      "SELECT days.day, drugs.name, drugs.time FROM days
+      JOIN regiment ON days.id = regiment.days_id
+      JOIN drugs ON regiment.drugs_id = drugs.id
+      WHERE days.id = 3"
+    ).sort_by {|k| k['time']}
+    tue_schedule.each do |k|
+      puts "#{k['name']} at #{k['time']}."
+    end
+  elsif today.wednesday? || user_prompt == "wednesday"
+    wed_schedule = db.execute(
+      "SELECT days.day, drugs.name, drugs.time FROM days
+      JOIN regiment ON days.id = regiment.days_id
+      JOIN drugs ON regiment.drugs_id = drugs.id
+      WHERE days.id = 4"
+    ).sort_by {|k| k['time']}
+    wed_schedule.each do |k|
+      puts "#{k['name']} at #{k['time']}."
+    end
+  elsif today.thursday? || user_prompt == "thursday"
+    thu_schedule = db.execute(
+      "SELECT days.day, drugs.name, drugs.time FROM days
+      JOIN regiment ON days.id = regiment.days_id
+      JOIN drugs ON regiment.drugs_id = drugs.id
+      WHERE days.id = 5"
+    ).sort_by {|k| k['time']}
+    thu_schedule.each do |k|
+      puts "#{k['name']} at #{k['time']}."
+    end
+  elsif today.friday? || user_prompt == "friday"
+    fri_schedule = db.execute(
+      "SELECT days.day, drugs.name, drugs.time FROM days
+      JOIN regiment ON days.id = regiment.days_id
+      JOIN drugs ON regiment.drugs_id = drugs.id
+      WHERE days.id = 6"
+    ).sort_by {|k| k['time']}
+    fri_schedule.each do |k|
+      puts "#{k['name']} at #{k['time']}."
+    end
+  elsif today.saturday? || user_prompt == "saturday"
+    sat_schedule = db.execute(
+      "SELECT days.day, drugs.name, drugs.time FROM days
+      JOIN regiment ON days.id = regiment.days_id
+      JOIN drugs ON regiment.drugs_id = drugs.id
+      WHERE days.id = 7"
+    ).sort_by {|k| k['time']}
+    sat_schedule.each do |k|
+      puts "#{k['name']} at #{k['time']}."
+    end
+  else
+    puts "Invalid input."
+  end
 
