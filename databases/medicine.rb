@@ -1,4 +1,32 @@
 require 'sqlite3'
 
-db =SQLite3::Database.new("drug_regiment.db")
-db.results_as_hash = true
+db = SQLite3::Database.new("drug_regiment.db")
+#db.results_as_hash = true
+
+table_creator_days = <<-SQL
+  CREATE TABLE IF NOT EXISTS days(
+    id INTEGER PRIMARY KEY,
+    day VARCHAR(255)
+  )
+SQL
+table_creator_drugs = <<-SQL
+  CREATE TABLE IF NOT EXISTS drugs(
+    id INTEGER PRIMARY KEY,
+    name VARCHAR(255),
+    time_per_day INT,
+    time INT
+  )
+SQL
+table_creator_regiment = <<-SQL
+  CREATE TABLE IF NOT EXISTS regiment(
+  id INTEGER PRIMARY KEY,
+  days_id INT,
+  drugs_id INT,
+  FOREIGN KEY (days_id) REFERENCES days(id),
+  FOREIGN KEY (drugs_id) REFERENCES drugs(id)
+  )
+SQL
+
+db.execute(table_creator_days)
+db.execute(table_creator_drugs)
+db.execute(table_creator_regiment)
