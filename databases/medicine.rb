@@ -91,7 +91,7 @@ puts "What would you like to do? Type 'Monday', 'Tuesday', etc."
 user_prompt = gets.chomp.downcase
 today = Time.now
 
-  if today.sunday? || user_prompt == "sunday"
+  if user_prompt == "sunday" || (user_prompt = "today" && today.sunday?)
     sun_schedule = db.execute(
       "SELECT days.day, drugs.name, drugs.time FROM days
       JOIN regiment ON days.id = regiment.days_id
@@ -99,9 +99,10 @@ today = Time.now
       WHERE days.id = 1"
     ).sort_by {|k| k['time']}
     sun_schedule.each do |k|
+      puts "For Sunday's "
       puts "#{k['name']} at #{k['time']}."
     end
-  elsif today.monday? || user_prompt == "monday"
+  elsif user_prompt == "monday" || (user_prompt = "today" && today.monday?)
     mon_schedule = db.execute(
       "SELECT days.day, drugs.name, drugs.time FROM days
       JOIN regiment ON days.id = regiment.days_id
@@ -111,7 +112,7 @@ today = Time.now
     mon_schedule.each do |k|
       puts "#{k['name']} at #{k['time']}."
     end
-  elsif today.tuesday? || user_prompt == "tuesday"
+  elsif user_prompt == "tuesday" || (user_prompt = "today" && today.tuesday?)
     tue_schedule = db.execute(
       "SELECT days.day, drugs.name, drugs.time FROM days
       JOIN regiment ON days.id = regiment.days_id
@@ -121,7 +122,7 @@ today = Time.now
     tue_schedule.each do |k|
       puts "#{k['name']} at #{k['time']}."
     end
-  elsif today.wednesday? || user_prompt == "wednesday"
+  elsif user_prompt == "wednesday" || (user_prompt = "today" && today.wednesday?)
     wed_schedule = db.execute(
       "SELECT days.day, drugs.name, drugs.time FROM days
       JOIN regiment ON days.id = regiment.days_id
@@ -131,7 +132,7 @@ today = Time.now
     wed_schedule.each do |k|
       puts "#{k['name']} at #{k['time']}."
     end
-  elsif today.thursday? || user_prompt == "thursday"
+  elsif user_prompt == "thursday" || (user_prompt = "today" && today.thursday?)
     thu_schedule = db.execute(
       "SELECT days.day, drugs.name, drugs.time FROM days
       JOIN regiment ON days.id = regiment.days_id
@@ -141,7 +142,7 @@ today = Time.now
     thu_schedule.each do |k|
       puts "#{k['name']} at #{k['time']}."
     end
-  elsif today.friday? || user_prompt == "friday"
+  elsif user_prompt == "friday" || (user_prompt = "today" && today.friday?)
     fri_schedule = db.execute(
       "SELECT days.day, drugs.name, drugs.time FROM days
       JOIN regiment ON days.id = regiment.days_id
@@ -151,7 +152,7 @@ today = Time.now
     fri_schedule.each do |k|
       puts "#{k['name']} at #{k['time']}."
     end
-  elsif today.saturday? || user_prompt == "saturday"
+  elsif user_prompt == "saturday" || (user_prompt = "today" && today.saturday?)
     sat_schedule = db.execute(
       "SELECT days.day, drugs.name, drugs.time FROM days
       JOIN regiment ON days.id = regiment.days_id
