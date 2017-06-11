@@ -58,7 +58,9 @@ db.execute("INSERT OR IGNORE INTO drugs (name, time, day_id) VALUES ('Multivitam
 
 # Populate data under days table
 days_of_week.each {|d| add_days(db, d)}
-
+test = db.execute("SELECT * FROM days")
+p test.class
+p test
 
 
 # Driver code
@@ -208,7 +210,7 @@ when "search"
 when "add"
 
   puts "Type name of medicine:"
-  pill_name = gets.chomp.downcase
+  pill_name = gets.chomp.capitalize
 
   puts "Type time of dosage: (use military hours 00:00-22:00)"
   dosage_time = gets.chomp
@@ -216,11 +218,11 @@ when "add"
   puts "What day will you take the medicine?"
   what_day = gets.chomp.capitalize
 
-  new_day = db.execute("SELECT id, day FROM days")
+  assign_day = db.execute("SELECT * FROM days")
   the_day = []
 
-  days_of_week.each do |x|
-    the_day << x[id] if what_day == x['name']
+  assign_day.each do |x|
+    the_day << x['id'] if what_day == x['day']
   end
 
   def insert_drug(db, name, time, id)
