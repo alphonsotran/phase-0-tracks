@@ -58,9 +58,7 @@ db.execute("INSERT OR IGNORE INTO drugs (name, time, day_id) VALUES ('Multivitam
 
 # Populate data under days table
 days_of_week.each {|d| add_days(db, d)}
-test = db.execute("SELECT * FROM days")
-p test.class
-p test
+
 
 
 # Driver code
@@ -233,4 +231,28 @@ when "add"
   puts "Successfully added #{pill_name}."
   puts "Time of day: #{the_day} at #{dosage_time}"
 
+
+
+when "delete"
+
+  drug_name = db.execute("SELECT DISTINCT name FROM drugs")
+
+  # Lists available medicine in the current regimen
+  puts "-----------------"
+  puts "List of medicine:"
+  drug_name.each do |x|
+    puts "#{x['name']}"
+  end
+  puts "-----------------"
+
+  drug_list = db.execute("SELECT * FROM drugs")
+  puts "What drug would you like to delete?"
+  deleted_drug = gets.chomp.capitalize
+
+
+  def delete_drug(db, pill)
+    db.execute("DELETE FROM drugs WHERE drugs.name = ?", [pill] )
+  end
+
+  delete_drug(db, deleted_drug)
 end
