@@ -1,6 +1,6 @@
 require 'sqlite3'
-require 'date'
 
+# Create SQlite3 database
 db = SQLite3::Database.new("drug_regimen.db")
 db.results_as_hash = true
 
@@ -83,6 +83,7 @@ case user_destination
 
 when "schedule"
 
+  # Will search the medical regimen for a particular day
   puts "What would you like to do? Type 'Today', 'Monday', 'Tuesday', etc."
   user_prompt = gets.chomp.downcase
   today = Time.now
@@ -101,6 +102,7 @@ when "schedule"
         puts "#{k['name']} at #{k['time']}."
       end
       puts "-----------------"
+
     elsif user_prompt == "monday" || (user_prompt == "today" && today.monday?)
       mon_schedule = db.execute(
         "SELECT days.day, drugs.name, drugs.time FROM days
@@ -115,6 +117,7 @@ when "schedule"
         puts "#{k['name']} at #{k['time']}."
       end
       puts "-----------------"
+
     elsif user_prompt == "tuesday" || (user_prompt == "today" && today.tuesday?)
       tue_schedule = db.execute(
         "SELECT days.day, drugs.name, drugs.time FROM days
@@ -129,6 +132,7 @@ when "schedule"
         puts "#{k['name']} at #{k['time']}."
       end
       puts "-----------------"
+
     elsif user_prompt == "wednesday" || (user_prompt == "today" && today. wednesday?)
       wed_schedule = db.execute(
         "SELECT days.day, drugs.name, drugs.time FROM days
@@ -143,6 +147,7 @@ when "schedule"
         puts "#{k['name']} at #{k['time']}."
       end
       puts "-----------------"
+
     elsif user_prompt == "thursday" || (user_prompt == "today" && today.  thursday?)
       thu_schedule = db.execute(
         "SELECT days.day, drugs.name, drugs.time FROM days
@@ -157,6 +162,7 @@ when "schedule"
         puts "#{k['name']} at #{k['time']}."
       end
       puts "-----------------"
+
     elsif user_prompt == "friday" || (user_prompt == "today" && today.friday?)
       fri_schedule = db.execute(
         "SELECT days.day, drugs.name, drugs.time FROM days
@@ -171,6 +177,7 @@ when "schedule"
         puts "#{k['name']} at #{k['time']}."
       end
       puts "-----------------"
+
     elsif user_prompt == "saturday" || (user_prompt == "today" && today.  saturday?)
       sat_schedule = db.execute(
         "SELECT days.day, drugs.name, drugs.time FROM days
@@ -185,6 +192,7 @@ when "schedule"
         puts "#{k['name']} at #{k['time']}."
       end
       puts "-----------------"
+
     else
       puts "Invalid input."
     end
@@ -192,12 +200,13 @@ when "schedule"
 when "search"
 
   all_drugs = db.execute(
-        "SELECT days.day, drugs.name, drugs.time FROM days
-        JOIN regimen ON days.id = regimen.days_id
-        JOIN drugs ON regimen.drugs_id = drugs.id"
-        )
+    "SELECT days.day, drugs.name, drugs.time FROM days
+    JOIN regimen ON days.id = regimen.days_id
+    JOIN drugs ON regimen.drugs_id = drugs.id"
+    )
   drug_name = db.execute("SELECT * FROM drugs")
 
+  # Lists available medicine in the current regimen
   puts "-----------------"
   puts "List of medicine:"
   drug_name.each do |x|
@@ -205,14 +214,17 @@ when "search"
   end
   puts "-----------------"
 
+  # Will search the days to take the particular medicine
   puts "Type in the medicine you would like to search."
   med = gets.chomp.downcase
 
+  # Print the schedule for the searched medicine
   all_drugs.each do |x|
     if x['name'].downcase == med
       puts "Take on #{x['day']} at #{x['time']}"
     end
   end
+
 end
 
 #puts "Would you like to create or delete a regimen?"
