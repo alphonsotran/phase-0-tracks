@@ -196,11 +196,11 @@ when "search"
 
   # Will search the days to take the particular medicine
   puts "Type in the medicine you would like to search."
-  med = gets.chomp.downcase
+  med = gets.chomp.capitalize
 
   # Print the schedule for the searched medicine
   all_drugs.each do |x|
-    if x['name'].downcase == med
+    if x['name'] == med
       puts "Take on #{x['day']} at #{x['time']}"
     end
   end
@@ -255,4 +255,5 @@ when "delete"
   end
 
   delete_drug(db, deleted_drug)
+  puts "Successfully deleted #{deleted_drug}."
 end
