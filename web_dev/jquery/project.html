@@ -4,7 +4,6 @@
   <title>The Random Project</title>
   <img src="http://i2.kym-cdn.com/photos/images/facebook/001/210/298/c98.jpg"  alt="Kitten">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
 </head>
 <body>
   <h1>What is this project?</h1>
@@ -18,19 +17,23 @@
     consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
     cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
     proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  <nav>
-    <ul>
-      <li>Caesar</li>
-      <li>Kaiser</li>
-      <li>Brute</li>
-    </ul>
-  </nav>
+  <ul>
+    <li>Caesar</li>
+    <li>Kaiser</li>
+    <li>Brute</li>
+  </ul>
+  <button class="btn">Okay.</button>
+
   <script type="text/javascript">
 
     $("documents").ready(function() {
 
       $("li:nth-child(3)").css("color", "red");
-
+      $("em").css("color", "blue");
+      $("li:odd").hide();
+      $("button").click(function() {
+        $(this).fadeOut();
+      });
     });
   </script>
 </body>
