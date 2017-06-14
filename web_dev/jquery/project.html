@@ -24,17 +24,21 @@
   </ul>
   <button class="btn">Okay.</button>
 
+  <img id=caesar src="http://1.bp.blogspot.com/-mIa54H5ke10/VjGvQyZnn7I/AAAAAAAAAJI/0ZVEdd3FWFg/s1600/death_of_julius_caesar.jpg">
+
   <script type="text/javascript">
 
     $("documents").ready(function() {
 
+      $("#caesar").hide();
       $("li:nth-child(3)").css("color", "red");
       $("em").css("color", "blue");
       $("li:odd").hide();
       $("button").click(function() {
-        $(this).fadeOut();
+        $("#caesar").fadeIn();
       });
     });
+
   </script>
 </body>
 </html>
