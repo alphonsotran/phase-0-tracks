@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The Project</title>
+  <title>The Random Project</title>
+  <img src="http://i2.kym-cdn.com/photos/images/facebook/001/210/298/c98.jpg"  alt="Kitten">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 </head>
 <body>
   <h1>What is this project?</h1>
     <p>This could be anything, but I decided that this will be <strong>something</strong>. </p>
   <h1>Huh?</h1>
     <p><em>Precisely</em>.</p>
-  <h1>Et Tu, Brute?</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+  <h1 id=brute>Et Tu, Brute?</h1>
+    <p class=lorem>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
     consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
@@ -22,5 +25,13 @@
       <li>Brute</li>
     </ul>
   </nav>
+  <script type="text/javascript">
+
+    $("documents").ready(function() {
+
+      $("li:nth-child(3)").css("color", "red");
+
+    });
+  </script>
 </body>
 </html>
