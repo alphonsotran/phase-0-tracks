@@ -43,10 +43,10 @@ end
 # write a GET route that retrieves
 # a particular student
 
-get '/students/:id' do
-  student = db.execute("SELECT * FROM students WHERE id=?", [params[:id]])[0]
-  student.to_s
-end
+#get '/students/:id' do
+#  student = db.execute("SELECT * FROM students WHERE id=?", [#params[:id]])[0]
+#  student.to_s
+#end
 
 # Release 0
 get '/' do
@@ -73,8 +73,8 @@ end
 
 get '/students/:like' do
   like = params[:like]
-  the_name = db.execute("SELECT * FROM students WHERE name LIKE '% ? %'", like)
-  the_name.to_s
+  age = db.execute("SELECT * FROM students WHERE Age=?", like)
+  age.to_s
 end
 
 # Release 1
