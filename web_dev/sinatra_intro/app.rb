@@ -19,6 +19,11 @@ get '/about/:person' do
   "#{person} is a programmer, and #{person} is learning Sinatra."
 end
 
+get '/contact' do
+  "2250 Benvenue Ave.
+  Berkeley, CA, 94609"
+end
+
 get '/:person_1/loves/:person_2' do
   "#{params[:person_1]} loves #{params[:person_2]}"
 end
